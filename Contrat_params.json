@@ -1,0 +1,57 @@
+[
+    {
+        "Id":"1",
+        "Name":"Offre Pro",
+        "optionType":"checkbox",
+        "options":[
+            {"OptionId":"1","label": "Expertise ATC (7€/ha)","tha":"7","tex":"0"},
+            {"OptionId":"2","label": "Accès au module technique et outils digitaux (3€/Ha)","tha":"3","tex":"0"},
+            {"OptionId":"3","label": "Accompagnement à la réalisation de documents d’enregistrements réglementaires (3€/Ha)","tha":"3","tex":"0"},
+            {"OptionId":"4","label": "Service logistique de retour produit (5€/Ha)","tha":"5","tex":"0"},
+            {"OptionId":"5","label": "Service logistique de réappro (2€/Ha)","tha":"2","tex":"0"}
+        ]         
+    },
+    {
+        "Id":"2",
+        "Name":"Sécurité+",
+        "optionType":"radio",
+        "options":[
+            {"OptionId":"1","label": "2 Phylia","tha":"0","tex":"0"},
+            {"OptionId":"2","label": "2 Analyses sols","tha":"0","tex":"0"},
+            {"OptionId":"3","label": "2 Analyses minérales complètes","tha":"0","tex":"0"}
+        ]         
+    },
+    {
+        "Id":"3",
+        "Name":"Avenant culture Spé",
+        "optionType":"checkbox",
+        "options":[
+            {"OptionId":"1","label": "Disponibilité et expertise ATC (14€/ha)","tha":"14","tex":"0"},
+            {"OptionId":"2","label": "Informations et Animations techniques (4€/Ha)","tha":"4","tex":"0"}
+        ]         
+    },
+    {
+        "Id":"4",
+        "Name":"Alliance Sélection",
+        "optionType":"checkbox",
+        "options":[
+            {"OptionId":"1","label": "Guide des cultures (300 €)","tha":"0","tex":"300"},
+            {"OptionId":"2","label": "Assistance réglementaire (250 €)","tha":"0","tex":"250"},
+            {"OptionId":"3","label": "Retour produit (400 €)","tha":"0","tex":"400"},
+            {"OptionId":"4","label": "Logistique réappro (300 €)","tha":"0","tex":"300"}
+        ]         
+    },
+    {
+        "Id":"5",
+        "Name":"MARAICHAGE",
+        "optionType":"checkbox",
+        "options":[
+            {"OptionId":"1","label": "Logistique (Mise à disposition et Retour Produits)","tha":"0","tex":"0"}
+        ]         
+    },
+    {
+        "Id":"6",
+        "Name":"Contrat sans options",
+        "optionType":"checkbox"         
+    }
+]

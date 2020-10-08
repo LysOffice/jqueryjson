@@ -1,0 +1,52 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./jsonPath.js"></script>
+    <script>
+    $( document ).ready(function() {
+      $.getJSON( "./Contrat_params.json", function(response) {
+          //Rempli le Select du contrat
+          $.each(response, function(i, item) {
+            $("#idcontrat").append(new Option(item.Name, item.Id));
+          });
+          //On change de contrat
+          $("#idcontrat").change(function() { 
+              $("#divoptions").empty();
+              var optionsdatas = jsonPath(response, "$[?(@.Id=='" + this.value + "')]")[0];
+              // Creation des options
+              if (optionsdatas !== undefined )  { 
+                  $('#total').val(0);   
+                  $.each(optionsdatas.options, function(i, item) {
+                    $('#divoptions').append("<input type='"+optionsdatas.optionType+"' name='Option'"+"'  value='"+item.OptionId+"'>"+item.label+"</option><br>"); 
+                  });
+                  //Sur chaque changement d'input , on recalcul
+                  $(':input').on('propertychange input', function () { //Sur chaque changement d'input , on recalcul
+                    var total=0;
+                    $('#divoptions :input').each(function() {
+                      if (this.checked) { 
+                        // Pour tester jsonpath : https://jsonpath.com/   ex : $[?(@.Id=='3')].options.[?(@.OptionId=='1')]
+                        var OptionsDetail =jsonPath(response, "$[?(@.Id=='" + $("#idcontrat").val() + "')].options.[?(@.OptionId=='"+this.value+"')]")[0];
+                        if (OptionsDetail) total = total + parseFloat(OptionsDetail.tha * $('#ha').val()) + parseFloat(OptionsDetail.tex);   
+                      }
+                      $('#total').val(total);
+                    });
+                  });
+                }
+            });
+        });      
+    });
+    </script>
+</head>
+<body>
+    <label for='ha'>Ha contrat : </label><input id='ha' value ='10'><br><br>
+    <label for='idcontrat'>Contrat :  </label><select id='idcontrat' name="contrat">
+        <option>Selectionnez...</option>      
+    </select><br><br>
+    <div id="divoptions">
+    </div>
+    <br>
+    <label for='total'>total avec options : </label><input id='total' value='0'><br><br>
+</body>
+</html>
